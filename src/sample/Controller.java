@@ -26,28 +26,31 @@ public class Controller {
         progressLabel.textProperty().bind(service.messageProperty());
         progressBar.progressProperty().bind(service.progressProperty());
        listy.itemsProperty().bind(service.valueProperty());
-       service.setOnRunning(new EventHandler<WorkerStateEvent>()
-       {
-           @Override
-           public
-           void handle(WorkerStateEvent workerStateEvent)
-           {
-               progressBar.setVisible(true);
-               progressLabel.setVisible(true);
-           }
-       });
-       service.setOnSucceeded(new EventHandler<WorkerStateEvent>()
-       {
-           @Override
-           public
-           void handle(WorkerStateEvent workerStateEvent)
-           {
-               progressBar.setVisible(false);
-               progressLabel.setVisible(false);
-           }
-       });
-       progressBar.setVisible(false);
-       progressLabel.setVisible(false);
+//       service.setonrunning(new eventhandler<workerstateevent>()
+//       {
+//           @override
+//           public
+//           void handle(workerstateevent workerstateevent)
+//           {
+//               progressbar.setvisible(true);
+//               progresslabel.setvisible(true);
+//           }
+//       });
+//       service.setonsucceeded(new eventhandler<workerstateevent>()
+//       {
+//           @override
+//           public
+//           void handle(workerstateevent workerstateevent)
+//           {
+//               progressbar.setvisible(false);
+//               progresslabel.setvisible(false);
+//           }
+//       });
+//       progressbar.setvisible(false);
+//       progressLabel.setVisible(false);
+
+        progressBar.visibleProperty().bind(service.runningProperty());
+        progressLabel.visibleProperty().bind(service.runningProperty());
     }
 
     @FXML public void PushButton()
